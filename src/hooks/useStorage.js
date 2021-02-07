@@ -5,10 +5,14 @@ import {
   timestamp,
 } from "../firebase";
 
+import { useAuth } from "../contexts/AuthContext";
+
 const useStorage = (file, location) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
+
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     // references
@@ -29,7 +33,7 @@ const useStorage = (file, location) => {
       async () => {
         const url = await storageRef.getDownloadURL();
         const createdAt = timestamp();
-        collectionRef.doc(fileName).set({ name: fileName, url, createdAt, location });
+        collectionRef.doc(fileName).set({ name: fileName, url, createdAt, location, email: currentUser.email });
         setUrl(url);
 
         console.log(location);
