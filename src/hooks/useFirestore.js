@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { projectFirestore } from "../firebase";
 
+import { useAuth } from "../contexts/AuthContext";
+
 const useFirestore = (collection) => {
   const [docs, setDocs] = useState([]);
+
+  const { currentUser } = useAuth();
+  console.log(currentUser.email);
 
   useEffect(() => {
     const unsub = projectFirestore
@@ -13,7 +18,14 @@ const useFirestore = (collection) => {
         snap.forEach((doc) => {
           documents.push({ ...doc.data(), id: doc.id });
         });
-        setDocs(documents);
+
+        let userDocuments = [];
+        for (let x = 0; x < documents.length; x++) {
+          if (documents[x].email === currentUser.email) {
+            userDocuments.push(documents[x]);
+          }
+        }
+        setDocs(userDocuments);
       });
 
     return () => unsub();
