@@ -17,32 +17,24 @@ body {
 
   margin-top: 20px;
 }
-.title h1 {
-  color: var(--primary);
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  font-weight: normal;
-}
 
 .title header {
   display: grid;
-  grid-template-columns: 1fr 19fr;
+  grid-template-columns: 1fr 7fr 1fr;
 }
 
-.title h2,
-.title p {
-  text-align: center;
-}
-.title h2 {
-  margin-top: 60px;
-  font-size: 2.6rem;
+.title h1 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: normal;
 }
 
 .title button {
   justify-self: right;
 
   width: 100px;
-  
+
   line-height: 20px;
 
   border-radius: 10px;
@@ -56,15 +48,23 @@ body {
   font-family: "Noto Serif";
 }
 
+.title h2,
+.title p {
+  text-align: center;
+}
+.title h2 {
+  margin-top: 60px;
+  font-size: 2.6rem;
+}
+
 /* upload form styles */
 .upload-container {
-  
   display: grid;
   grid-template-rows: 1fr;
   grid-gap: 40px;
 
   max-width: 959px;
-  
+
   padding-top: 25vh;
   border: none;
 
@@ -73,16 +73,13 @@ body {
   margin-top: -15vh;
 }
 .upload-grid {
-  
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 35px;
 
-  
   background: var(--secondary);
-  
+
   max-height: 70vh;
-  
 }
 /*
 form {
