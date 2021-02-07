@@ -33,7 +33,7 @@ const useStorage = (file, location) => {
       async () => {
         const url = await storageRef.getDownloadURL();
         const createdAt = timestamp();
-        collectionRef.doc(fileName).set({ name: fileName, url, createdAt, location, email: currentUser.email });
+        collectionRef.add({ name: fileName, url, createdAt, location, email: currentUser.email });
         setUrl(url);
 
         console.log(location);
