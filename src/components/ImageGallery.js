@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import Title from "./Title";
 import UploadForm from "./UploadForm";
 
-import "./index.css"
+import "../index.css"
 
 function ImageGallery() {
   const [selectedImg, setSelectedImg] = useState(null);
