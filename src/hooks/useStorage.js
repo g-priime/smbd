@@ -11,10 +11,11 @@ const useStorage = (file, location) => {
   const { currentUser } = useAuth();
 
   useEffect(() => {
+    let id = "id" + Math.random().toString(16).slice(2);
     // references
-    const storageRef = projectStorage.ref(currentUser.email + "_" + file.name);
+    const storageRef = projectStorage.ref(id + "_" + currentUser.email + "_" + file.name);
     const collectionRef = projectFirestore.collection("images");
-    console.log(file);
+    console.log(id);
 
     const fileName = file.name;
 
