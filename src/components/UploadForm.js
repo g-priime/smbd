@@ -40,8 +40,6 @@ const UploadForm = ({ setShowForm }) => {
     } else {
       setLocError("Please enter a location");
     }
-
-    console.log(submitted);
   };
 
   const exitForm = () => {
