@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  projectStorage,
-  projectFirestore,
-  timestamp,
-} from "../firebase";
+import { projectStorage, projectFirestore, timestamp } from "../firebase";
 
 import { useAuth } from "../contexts/AuthContext";
 
@@ -16,8 +12,9 @@ const useStorage = (file, location) => {
 
   useEffect(() => {
     // references
-    const storageRef = projectStorage.ref(file.name);
+    const storageRef = projectStorage.ref(currentUser.email + "_" + file.name);
     const collectionRef = projectFirestore.collection("images");
+    console.log(file);
 
     const fileName = file.name;
 
@@ -33,10 +30,14 @@ const useStorage = (file, location) => {
       async () => {
         const url = await storageRef.getDownloadURL();
         const createdAt = timestamp();
-        collectionRef.add({ name: fileName, url, createdAt, location, email: currentUser.email });
+        collectionRef.add({
+          name: fileName,
+          url,
+          createdAt,
+          location,
+          email: currentUser.email,
+        });
         setUrl(url);
-
-        console.log(location);
       }
     );
   }, [file, location]);
