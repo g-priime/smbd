@@ -28,6 +28,11 @@ body {
   grid-template-columns: 1.5fr 6.5fr;
 }
 
+.header-forgot-password {
+  display: grid;
+  grid-template-columns: 1.5fr 6.5fr 1fr;
+}
+
 .title h1 {
   color: var(--primary);
   font-size: 2.5rem;
