@@ -11,9 +11,9 @@ const useStorage = (file, location) => {
   const { currentUser } = useAuth();
 
   useEffect(() => {
-    let id = Math.random().toString(16).slice(2);
+    let id = Math.random().toString(16).slice(2) + "_" + file.name;
     // references
-    const storageRef = projectStorage.ref(id + "_" + file.name);
+    const storageRef = projectStorage.ref(id);
     const collectionRef = projectFirestore.collection("images");
     console.log(id);
 
@@ -30,9 +30,11 @@ const useStorage = (file, location) => {
       },
       async () => {
         const url = await storageRef.getDownloadURL();
+
         const createdAt = timestamp();
-        collectionRef.add({
-          name: fileName,
+
+        collectionRef.doc(id).set({
+          name: id,
           url,
           createdAt,
           location,
