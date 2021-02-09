@@ -8,14 +8,6 @@ const TitleLoggedOut = ({ setShowForm }) => {
   const [error, setError] = useState("");
   const { logout } = useAuth();
 
-  const toUpdateProfile = () => {
-    history.push("/update-profile");
-  };
-
-  const handleClick = () => {
-    setShowForm(true);
-  };
-
   async function handleLogin() {
     setError("");
 
@@ -23,7 +15,7 @@ const TitleLoggedOut = ({ setShowForm }) => {
       await logout();
       history.push("/login");
     } catch {
-      setError("Failed to log out");
+      setError("Failed to go to log in page");
     }
   }
 
