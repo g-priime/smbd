@@ -27,7 +27,7 @@ const TitleLogInPage = ({ setShowForm }) => {
         <button onClick={handleSignUp}>Sign Up</button>
       </div>
 
-      <h2>Sign In to SMBD</h2>
+      <h2>Log In to SMBD</h2>
       {/* TODO - fix how error message is shown */}
       {error && <Alert variant="danger">{error}</Alert>}
       {/*
