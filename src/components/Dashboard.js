@@ -3,6 +3,8 @@ import { Card, Button, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
+import Title from "./Title";
+
 export default function Dashboard() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
@@ -20,6 +22,8 @@ export default function Dashboard() {
   }
 
   return (
+    <div className="ImageGallery">
+      <Title />
     <Container
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
@@ -45,5 +49,6 @@ export default function Dashboard() {
         </div>
       </div>
     </Container>
+    </div>
   );
 }
