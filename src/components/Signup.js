@@ -60,9 +60,9 @@ export default function Signup() {
                   required
                 />
               </Form.Group>
-              <Button disabled={loading} className="w-100" type="submit">
+              <button disabled={loading} className="w-100 button-forms" type="submit">
                 Create Account
-              </Button>
+              </button>
             </Form>
           </Card.Body>
           <div className="w-100 text-center mt-2">
