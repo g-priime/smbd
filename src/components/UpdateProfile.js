@@ -23,10 +23,12 @@ export default function UpdateProfile() {
     const promises = [];
     setLoading(true);
     setError("");
-
+/*
     if (emailRef.current.value !== currentUser.email) {
       promises.push(updateEmail(emailRef.current.value));
     }
+    */
+   
     if (passwordRef.current.value) {
       promises.push(updatePassword(passwordRef.current.value));
     }
@@ -55,15 +57,7 @@ export default function UpdateProfile() {
             
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
-              <Form.Group id="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  ref={emailRef}
-                  required
-                  defaultValue={currentUser.email}
-                />
-              </Form.Group>
+              
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
