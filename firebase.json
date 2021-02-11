@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "beautyindirt",
     "public": "build",
     "ignore": [
       "firebase.json",
