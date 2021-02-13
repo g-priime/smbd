@@ -121,6 +121,11 @@
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 1;
+
+      justify-content: top;
+      align-items: flex-end;
+
+      
     }
   
     .nav-links {
@@ -138,8 +143,8 @@
   
     .navbar-logo {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: -10%;
+      left: -5%;
       transform: translate(25%, 50%);
     }
   
@@ -161,14 +166,14 @@
     .nav-links-mobile {
       display: block;
       text-align: center;
-      margin: 2rem auto;
+      margin: 0 auto;
       border-radius: 4px;
       width: 80%;
       text-decoration: none;
       font-size: 1.5rem;
       background-color: transparent;
       color: #fff;
-      padding: 14px 20px;
+      
       border: 1px solid #fff;
       transition: all 0.3s ease-out;
     }
@@ -195,10 +200,9 @@
       
         font-family: "Noto Serif";
       
-        background: black;
+        background: var(--primary);
         color: white;
       
-        padding-top: 10px;
-        padding-bottom: 10px;
+
       }
   }
