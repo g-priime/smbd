@@ -3,6 +3,7 @@
 :root {
   --primary: #efb6b2;
   --secondary: #4e4e4e;
+  --tertiary: rgb(238, 233, 233);
   --error: #ff4a4a;
 }
 
@@ -63,12 +64,19 @@ body {
   border-radius: 10px;
   border: 1px solid var(--primary);
 
-  color: var(--primary);
   font-size: 1.2rem;
   letter-spacing: 2px;
   font-weight: normal;
 
   font-family: "Noto Serif";
+
+  background: var(--primary);
+  color: white;
+}
+
+.title button:hover {
+  background: var(--secondary);
+  color: var(--primary);
 }
 
 .title h2,
@@ -181,11 +189,13 @@ label.file-label:hover {
 
   border-radius: 10px;
   border: 1px solid var(--primary);
-  color: var(--primary);
-}
-button:hover {
+
   background: var(--primary);
   color: white;
+}
+button:hover {
+  background: whitesmoke;
+  color: var(--primary);
 }
 button:focus {
   outline: none;
@@ -411,9 +421,15 @@ button:active {
 
   border-radius: 10px;
 
-  color: var(--primary);
-
   border: 1px solid var(--primary);
 
   margin-top: 20px;
+
+  background: var(--primary);
+  color: white;
+}
+
+.button-forms:hover {
+  background: var(--secondary);
+  color: var(--primary);
 }
