@@ -1,18 +1,40 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Alert } from "react-bootstrap";
+
+import "./Navbar.css";
 
 const Title = ({ setShowForm }) => {
   const history = useHistory();
   const [error, setError] = useState("");
   const { logout, currentUser } = useAuth();
 
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener("resize", showButton);
+
   const toUpdateProfile = () => {
     history.push("/update-profile");
   };
 
-  const handleClick = () => {
+  const addPhoto = () => {
     setShowForm(true);
   };
 
@@ -29,15 +51,38 @@ const Title = ({ setShowForm }) => {
 
   return (
     <div className="title">
+      <nav className="navbar">
+        <div className="navbar-container">
+          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+            TRVL <i className="fab fa-typo3" />
+          </Link>
+          <div className="menu-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} />
+          </div>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <button onClick={addPhoto}>Add Photo</button>
+            </li>
+            <li className="nav-item">
+              <button onClick={toUpdateProfile}>Update Profile</button>
+            </li>
+            <li className="nav-item">
+              <button onClick={handleLogout}>Log Out</button>
+            </li>
+            
+          </ul>
+          {/*
+          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
+          */}
+        </div>
+      </nav>
       <header>
         <h1>SMBD</h1>
         <h3>{currentUser.email}</h3>
+
         
-        <button onClick={handleClick}>Add Photo</button>
-        <button onClick={toUpdateProfile}>Update Profile</button>
-        <button onClick={handleLogout}>Log Out</button>
       </header>
-      
+
       <h2>So Much Beauty in Dirt</h2>
       {/* TODO - fix how error message is shown */}
       {error && <Alert variant="danger">{error}</Alert>}
