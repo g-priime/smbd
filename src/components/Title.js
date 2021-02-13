@@ -54,21 +54,23 @@ const Title = ({ setShowForm }) => {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            TRVL <i className="fab fa-typo3" />
+            <h1>SMBD</h1> <i className="fab fa-typo3" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
+            
+            <h3>{currentUser.email}</h3>
+            
+            
               <button onClick={addPhoto}>Add Photo</button>
-            </li>
-            <li className="nav-item">
+            
+            
               <button onClick={toUpdateProfile}>Update Profile</button>
-            </li>
-            <li className="nav-item">
+            
+            
               <button onClick={handleLogout}>Log Out</button>
-            </li>
             
           </ul>
           {/*
@@ -76,12 +78,7 @@ const Title = ({ setShowForm }) => {
           */}
         </div>
       </nav>
-      <header>
-        <h1>SMBD</h1>
-        <h3>{currentUser.email}</h3>
-
-        
-      </header>
+      
 
       <h2>So Much Beauty in Dirt</h2>
       {/* TODO - fix how error message is shown */}
