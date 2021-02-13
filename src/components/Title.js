@@ -31,14 +31,17 @@ const Title = ({ setShowForm }) => {
   window.addEventListener("resize", showButton);
 
   const toUpdateProfile = () => {
+    closeMobileMenu();
     history.push("/update-profile");
   };
 
   const addPhoto = () => {
+    closeMobileMenu();
     setShowForm(true);
   };
 
   async function handleLogout() {
+    closeMobileMenu();
     setError("");
 
     try {
