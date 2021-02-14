@@ -63,25 +63,23 @@ const Title = ({ setShowForm }) => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            
+
             <h3>{currentUser.email}</h3>
-            
-            
-              <button onClick={addPhoto}>Add Photo</button>
-            
-            
-              <button onClick={toUpdateProfile}>Update Profile</button>
-            
-            
-              <button onClick={handleLogout}>Log Out</button>
-            
+
+
+            <button onClick={addPhoto}>Add Photo</button>
+
+
+            <button onClick={toUpdateProfile}>Update Profile</button>
+
+
+            <button onClick={handleLogout}>Log Out</button>
+
           </ul>
-          {/*
-          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
-          */}
+
         </div>
       </nav>
-      
+
 
       <h2>So Much Beauty in Dirt</h2>
       {/* TODO - fix how error message is shown */}
