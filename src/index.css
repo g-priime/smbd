@@ -54,8 +54,6 @@ body {
   align-self: center;
 }
 
-
-
 .title button:hover {
   background: var(--secondary);
   color: var(--primary);
@@ -191,7 +189,6 @@ button:active {
 }
 
 @media screen and (max-width: 960px) {
-  
 }
 
 /* progress bar styles */
@@ -272,14 +269,15 @@ button:active {
 
   font-weight: bold;
 
-  background: transparent;
+  background: var(--primary);
+  color: black;
   border: 1px solid var(--primary);
 }
 
 .button-exit:hover {
   font-size: 1.6rem;
-  background: var(--primary);
-  color: black;
+  background: white;
+  color: var(--primary);
 }
 
 .location {
