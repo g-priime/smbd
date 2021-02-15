@@ -3,11 +3,11 @@
 :root {
   --primary: #efb6b2;
   --secondary: #4e4e4e;
+  --tertiary: rgb(238, 233, 233);
   --error: #ff4a4a;
 }
 
 /* base styles & title */
-
 body {
   font-family: "Noto Serif";
   color: var(--secondary);
@@ -40,7 +40,7 @@ body {
 }
 
 .title h1 {
-  color: var(--primary);
+  
   font-size: 2.5rem;
   letter-spacing: 2px;
   font-weight: normal;
@@ -54,22 +54,9 @@ body {
   align-self: center;
 }
 
-.title button {
-  justify-self: right;
-
-  width: 100px;
-
-  line-height: 20px;
-
-  border-radius: 10px;
-  border: 1px solid var(--primary);
-
+.title button:hover {
+  background: var(--secondary);
   color: var(--primary);
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  font-weight: normal;
-
-  font-family: "Noto Serif";
 }
 
 .title h2,
@@ -87,7 +74,7 @@ body {
   grid-template-rows: 1fr;
   grid-gap: 40px;
 
-  max-width: 959px;
+  max-width: 960px;
 
   padding-top: 25vh;
   border: none;
@@ -182,11 +169,13 @@ label.file-label:hover {
 
   border-radius: 10px;
   border: 1px solid var(--primary);
-  color: var(--primary);
-}
-button:hover {
+
   background: var(--primary);
   color: white;
+}
+button:hover {
+  background: whitesmoke;
+  color: var(--primary);
 }
 button:focus {
   outline: none;
@@ -197,6 +186,9 @@ button:active {
 
 .progress-container {
   height: 5px;
+}
+
+@media screen and (max-width: 960px) {
 }
 
 /* progress bar styles */
@@ -277,14 +269,15 @@ button:active {
 
   font-weight: bold;
 
-  background: transparent;
+  background: var(--primary);
+  color: black;
   border: 1px solid var(--primary);
 }
 
 .button-exit:hover {
   font-size: 1.6rem;
-  background: var(--primary);
-  color: black;
+  background: white;
+  color: var(--primary);
 }
 
 .location {
@@ -412,9 +405,15 @@ button:active {
 
   border-radius: 10px;
 
-  color: var(--primary);
-
   border: 1px solid var(--primary);
 
   margin-top: 20px;
+
+  background: var(--primary);
+  color: white;
+}
+
+.button-forms:hover {
+  background: var(--secondary);
+  color: var(--primary);
 }
