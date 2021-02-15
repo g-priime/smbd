@@ -21,7 +21,7 @@
   }
   
   .navbar-logo {
-    color: #fff;
+    color: var(--primary);
     justify-self: start;
     margin-left: 10px;
     cursor: pointer;
@@ -29,6 +29,10 @@
     font-size: 2rem;
     display: flex;
     align-items: center;
+  }
+
+  .navbar-logo:hover {
+    color: green;
   }
   
   .fa-typo3 {
