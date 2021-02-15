@@ -57,7 +57,7 @@ const TitleForgotPassword = ({ setShowForm }) => {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <h1>SMBD</h1> <i className="fab fa-typo3" />
+            <h1>SMBD</h1> <i className="fas fa-leaf" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
