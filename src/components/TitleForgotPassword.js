@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory,Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Alert } from "react-bootstrap";
 
@@ -63,8 +63,8 @@ const TitleForgotPassword = ({ setShowForm }) => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <button onClick={handleLogin}>Log In</button>
-        <button onClick={handleSignUp}>Sign Up</button>
+            <button onClick={handleLogin}>Log In</button>
+            <button onClick={handleSignUp}>Sign Up</button>
           </ul>
         </div>
       </nav>
