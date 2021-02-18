@@ -108,18 +108,7 @@
   .NavbarItems {
     position: relative;
   }
-  /*
-    .nav-menu {
-      display: grid;
-      grid-template-rows: repeat(4, auto);
-      grid-gap: 0;
-      list-style: none;
-      text-align: center;
-      width: 100vw;
-      justify-content: end;
-      margin-right: 0;
-    }
-    */
+  
   .nav-menu {
     display: none;
     flex-direction: column;
@@ -132,8 +121,8 @@
     transition: none;
     border: 2px solid var(--primary);
     border-top: none;
-    border-radius: 3px;
-
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
 
   .nav-menu.active {
@@ -182,6 +171,8 @@
   .fa-times {
     color: #fff;
     font-size: 2rem;
+
+    padding-right: 2px;
   }
 
   .nav-links-mobile {
