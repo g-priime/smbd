@@ -124,13 +124,14 @@
     display: none;
     flex-direction: column;
     width: 30%;
-    height: 30vh;
+    max-height: 30vh;
     position: absolute;
     top: 80px;
     left: 70%;
 
     transition: none;
     border: 2px solid var(--primary);
+    border-top: none;
     border-radius: 3px;
 
   }
