@@ -119,6 +119,7 @@
       left: 70%;
       opacity: 0;
       transition: none;
+
     }
   
     .nav-menu.active {
@@ -193,7 +194,7 @@
     .title button {
         justify-self: right;
       
-        width: 75%;
+        width: 100%;
       
         line-height: 20px;
       
