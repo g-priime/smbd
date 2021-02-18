@@ -28,7 +28,6 @@ const TitleUpdateProfile = ({ setShowForm }) => {
 
   window.addEventListener("resize", showButton);
 
-
   async function handleLogout() {
     closeMobileMenu();
     setError("");
@@ -52,17 +51,10 @@ const TitleUpdateProfile = ({ setShowForm }) => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-
-            <h3>{currentUser.email}</h3>
-
-
             <button onClick={handleLogout}>Log Out</button>
-
           </ul>
-
         </div>
       </nav>
-     
 
       <h2>Update Profile</h2>
       {/* TODO - fix how error message is shown */}
@@ -71,7 +63,6 @@ const TitleUpdateProfile = ({ setShowForm }) => {
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       */}
     </div>
-    
   );
 };
 
