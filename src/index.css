@@ -81,15 +81,14 @@ body {
 
   margin-left: auto;
   margin-right: auto;
-  margin-top: -25vh;
+  margin-top: -15vh;
 
-  padding-bottom: 50vh;
-  margin-bottom: 50vh;
+  
 }
 .upload-grid {
   display: grid;
   grid-template-rows: 1fr 1fr 3fr 1fr 1fr;
-  grid-gap: 35px;
+  grid-gap: 20px;
 
   background: var(--secondary);
 
@@ -190,7 +189,7 @@ button:active {
 }
 
 .progress-container {
-  height: 5px;
+  height: 20px;
 }
 
 @media screen and (max-width: 960px) {
