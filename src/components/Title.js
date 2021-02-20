@@ -35,9 +35,9 @@ const Title = ({ setShowForm }) => {
     history.push("/update-profile");
   };
 
-  const addPhoto = () => {
+  const toMyGallery = () => {
     closeMobileMenu();
-    setShowForm(true);
+    history.push("/my-gallery");
   };
 
   async function handleLogout() {
@@ -63,7 +63,7 @@ const Title = ({ setShowForm }) => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <button onClick={addPhoto}>Add Photo</button>
+            <button onClick={toMyGallery}>My Pics</button>
 
             <button onClick={toUpdateProfile}>Update Profile</button>
 
