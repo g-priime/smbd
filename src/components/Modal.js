@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Moment from "react-moment";
 import deletePic from "../hooks/deletePic";
 
-import useFirestore from "../hooks/useFirestore";
+import useAllPics from "../hooks/useAllPics";
 
 const Modal = ({ selectedImg, setSelectedImg }) => {
   /*
@@ -25,7 +25,7 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
     console.log(fileName);
   };
 
-  const { docs } = useFirestore("images");
+  const { docs } = useAllPics("images");
 
   const previousPicture = () => {
     const reversedDocs = docs.map((doc) => doc).reverse();
@@ -44,7 +44,6 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
       return false;
     });
 
-    console.log(success);
   };
 
   const nextPicture = () => {
@@ -59,10 +58,11 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
       if (doc.id === selectedImg.id) {
         found = true;
       }
+
       return false;
     });
 
-    console.log(success);
+
   };
 
   return (
