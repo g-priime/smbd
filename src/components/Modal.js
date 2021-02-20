@@ -18,13 +18,6 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
     setSelectedImg(null);
   };
 
-  const deletePicture = () => {
-    const { fileName } = deletePic(selectedImg.name);
-    setSelectedImg(null);
-
-    console.log(fileName);
-  };
-
   const { docs } = useAllPics("images");
 
   const previousPicture = () => {
@@ -119,9 +112,7 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
             </div>
           </div>
 
-          <button className="button-delete" onClick={deletePicture}>
-            <i class="far fa-trash-alt"></i>
-          </button>
+          
         </div>
       </div>
     </motion.div>
