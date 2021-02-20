@@ -1,9 +1,10 @@
 import React from "react";
-import useFirestore from "../hooks/useFirestore";
+
 import { motion } from "framer-motion";
+import useAllPics from "../hooks/useAllPics";
 
 const ImageGrid = ({ setSelectedImg }) => {
-  const { docs } = useFirestore("images");
+  const { docs } = useAllPics("images");
 
   return (
     <div className="img-grid">
