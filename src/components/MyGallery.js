@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Modal from "./Modal";
+import MyModal from "./MyModal";
 
 import UploadForm from "./UploadForm";
 
@@ -22,7 +22,7 @@ function MyGallery() {
       
       <MyGrid setSelectedImg={setSelectedImg} />
       {selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+        <MyModal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}
     </div>
   );
