@@ -246,7 +246,7 @@ button:active {
 
 .modal-vert-grid {
   display: grid;
-  grid-template-rows: 8vh 80vh 8vh;
+  grid-template-rows: 7vh 80vh 7vh;
 }
 
 .modal-grid {
@@ -257,10 +257,12 @@ button:active {
   align-self: center;
 
   width: 100%;
+
 }
 
 .button-exit {
   justify-self: flex-start;
+  align-self: start;
 
   font-size: 1.6rem;
 
@@ -376,7 +378,7 @@ button:active {
 
 .button-delete {
   justify-self: end;
-  align-self: end;
+  align-self: start;
 
   font-size: 1.6rem;
 
@@ -390,6 +392,8 @@ button:active {
 
   background: transparent;
   border: none;
+
+  
 }
 
 /*Signup Styles*/
