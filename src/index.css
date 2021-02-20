@@ -71,7 +71,7 @@ body {
 /* upload form styles */
 .upload-container {
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 40px;
 
   max-width: 960px;
@@ -82,15 +82,19 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: -15vh;
+
+  
 }
 .upload-grid {
   display: grid;
   grid-template-rows: 1fr 1fr 3fr 1fr 1fr;
-  grid-gap: 35px;
+  grid-gap: 20px;
 
   background: var(--secondary);
 
-  max-height: 70vh;
+  max-height: 100vh;
+
+
 }
 /*
 form {
@@ -185,7 +189,7 @@ button:active {
 }
 
 .progress-container {
-  height: 5px;
+  height: 20px;
 }
 
 @media screen and (max-width: 960px) {
@@ -246,7 +250,7 @@ button:active {
 
 .modal-vert-grid {
   display: grid;
-  grid-template-rows: 8vh 80vh 8vh;
+  grid-template-rows: 7vh 80vh 7vh;
 }
 
 .modal-grid {
@@ -257,10 +261,12 @@ button:active {
   align-self: center;
 
   width: 100%;
+
 }
 
 .button-exit {
   justify-self: flex-start;
+  align-self: start;
 
   font-size: 1.6rem;
 
@@ -376,7 +382,7 @@ button:active {
 
 .button-delete {
   justify-self: end;
-  align-self: end;
+  align-self: start;
 
   font-size: 1.6rem;
 
@@ -390,6 +396,8 @@ button:active {
 
   background: transparent;
   border: none;
+
+  
 }
 
 /*Signup Styles*/
