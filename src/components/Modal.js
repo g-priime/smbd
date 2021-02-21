@@ -5,7 +5,7 @@ import deletePic from "../hooks/deletePic";
 
 import useAllPics from "../hooks/useAllPics";
 
-const Modal = ({ selectedImg, setSelectedImg }) => {
+const Modal = ({ selectedImg, setSelectedImg, docs }) => {
   /*
   const handleClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
@@ -18,7 +18,7 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
     setSelectedImg(null);
   };
 
-  const { docs } = useAllPics("images");
+  
 
   const previousPicture = () => {
     const reversedDocs = docs.map((doc) => doc).reverse();
