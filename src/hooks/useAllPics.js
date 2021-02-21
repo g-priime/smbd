@@ -8,6 +8,20 @@ const useAllPics = (collection) => {
 
   const { currentUser } = useAuth();
 
+  Array.prototype.shuffle = function () {
+    let input = this;
+  
+    for (let i = input.length - 1; i >= 0; i--) {
+  
+      let randomIndex = Math.floor(Math.random() * (i + 1));
+      let itemAtIndex = input[randomIndex];
+  
+      input[randomIndex] = input[i];
+      input[i] = itemAtIndex;
+    }
+    return input;
+  }
+
   useEffect(() => {
     const unsub = projectFirestore
       .collection(collection)
@@ -19,6 +33,8 @@ const useAllPics = (collection) => {
             documents.push({ ...doc.data(), id: doc.id });
           }
         });
+
+        documents.shuffle();
 
         setDocs(documents);
       });
