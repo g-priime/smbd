@@ -3,8 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import useAllPics from "../hooks/useAllPics";
 
-const ImageGrid = ({ setSelectedImg }) => {
-  const { docs } = useAllPics("images");
+const ImageGrid = ({ setSelectedImg, docs }) => {
+  
 
   return (
     <div className="img-grid">
