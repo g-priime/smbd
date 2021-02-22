@@ -38,6 +38,7 @@ const Title = ({ setShowForm }) => {
   const toMyGallery = () => {
     closeMobileMenu();
     history.push("/my-gallery");
+    console.log(currentUser)
   };
 
   async function handleLogout() {
@@ -71,7 +72,7 @@ const Title = ({ setShowForm }) => {
           </ul>
         </div>
       </nav>
-
+{currentUser.data}
       <h2>So Much Beauty in Dirt</h2>
       {/* TODO - fix how error message is shown */}
       {error && <Alert variant="danger">{error}</Alert>}
