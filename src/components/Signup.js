@@ -27,22 +27,25 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
+      let username = displayNameRef.current.value;
+
       await signup(
         emailRef.current.value,
         passwordRef.current.value,
         displayNameRef.current.value
       )
         .then((data) => {
+          console.log(username)
           const { user } = data;
           if (user) {
             user.updateProfile({
-              displayName: "bob",
+              displayName: username,
             });
           }
         })
         .then(history.push("/"));
 
-      console.log(currentUser);
+
     } catch {
       setError("Failed to create an account");
     }
