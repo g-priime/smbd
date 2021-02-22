@@ -15,6 +15,7 @@ export default function Signup() {
   const history = useHistory();
 
   const [currentUser, setCurrentUser] = useState();
+  const { updateDisplayName } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -26,11 +27,22 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value, displayNameRef.current.value);
+      await signup(
+        emailRef.current.value,
+        passwordRef.current.value,
+        displayNameRef.current.value
+      )
+        .then((data) => {
+          const { user } = data;
+          if (user) {
+            user.updateProfile({
+              displayName: "bob",
+            });
+          }
+        })
+        .then(history.push("/"));
 
-      
-
-      history.push("/");
+      console.log(currentUser);
     } catch {
       setError("Failed to create an account");
     }
@@ -47,7 +59,6 @@ export default function Signup() {
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card.Body>
-            
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
@@ -56,7 +67,11 @@ export default function Signup() {
               </Form.Group>
               <Form.Group id="username">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="displayName" ref={displayNameRef} required />
+                <Form.Control
+                  type="displayName"
+                  ref={displayNameRef}
+                  required
+                />
               </Form.Group>
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
@@ -70,7 +85,11 @@ export default function Signup() {
                   required
                 />
               </Form.Group>
-              <button disabled={loading} className="w-100 button-forms" type="submit">
+              <button
+                disabled={loading}
+                className="w-100 button-forms"
+                type="submit"
+              >
                 Create Account
               </button>
             </Form>
