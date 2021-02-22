@@ -35,6 +35,21 @@ export function AuthProvider({ children }) {
     return currentUser.updatePassword(password);
   }
 
+  function updateDisplayName(displayName) {
+    let user = currentUser;
+
+    user
+      .updateProfile({
+        displayName: displayName,
+      })
+      .then(function () {
+        // Update successful.
+      })
+      .catch(function (error) {
+        // An error happened.
+      });
+  }
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -52,6 +67,7 @@ export function AuthProvider({ children }) {
     resetPassword,
     updateEmail,
     updatePassword,
+    updateDisplayName,
   };
 
   return (
