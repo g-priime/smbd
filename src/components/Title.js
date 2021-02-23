@@ -38,7 +38,7 @@ const Title = ({ setShowForm }) => {
   const toMyGallery = () => {
     closeMobileMenu();
     history.push("/my-gallery");
-    console.log(currentUser)
+    console.log(currentUser.displayName);
   };
 
   async function handleLogout() {
@@ -60,6 +60,7 @@ const Title = ({ setShowForm }) => {
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <h1>SMBD</h1> <i className="fas fa-leaf" />
           </Link>
+          <h4 className="username">{currentUser.displayName}</h4>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
@@ -72,7 +73,7 @@ const Title = ({ setShowForm }) => {
           </ul>
         </div>
       </nav>
-{currentUser.data}
+
       <h2>So Much Beauty in Dirt</h2>
       {/* TODO - fix how error message is shown */}
       {error && <Alert variant="danger">{error}</Alert>}
