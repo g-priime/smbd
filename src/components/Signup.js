@@ -35,7 +35,7 @@ export default function Signup() {
         displayNameRef.current.value
       )
         .then((data) => {
-          console.log(username)
+          console.log(username);
           const { user } = data;
           if (user) {
             user.updateProfile({
@@ -44,8 +44,6 @@ export default function Signup() {
           }
         })
         .then(history.push("/"));
-
-
     } catch {
       setError("Failed to create an account");
     }
