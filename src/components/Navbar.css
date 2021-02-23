@@ -29,6 +29,8 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
+
+  margin-right: 10px;
 }
 
 .navbar-logo:hover {
@@ -108,7 +110,7 @@
   .NavbarItems {
     position: relative;
   }
-  
+
   .nav-menu {
     display: none;
     flex-direction: column;
@@ -154,8 +156,13 @@
   .navbar-logo {
     position: absolute;
     top: -10%;
-    left: -5%;
+    left: -40px;
     transform: translate(25%, 50%);
+  }
+
+  .username {
+    position: absolute;
+    left: 180px;
   }
 
   .menu-icon {
