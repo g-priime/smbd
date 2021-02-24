@@ -261,6 +261,9 @@ button:active {
   align-self: center;
 
   width: 100%;
+
+  padding-top: 21px;
+  padding-bottom: 0;
 }
 
 .button-exit {
@@ -288,7 +291,7 @@ button:active {
 .location {
   text-align: center;
   color: var(--primary);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: 2px;
   font-weight: normal;
   margin-top: 0;
@@ -374,7 +377,7 @@ button:active {
 .caption {
   text-align: center;
   color: var(--primary);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: 2px;
   font-weight: normal;
 }
