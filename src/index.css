@@ -266,6 +266,19 @@ button:active {
   padding-bottom: 0;
 }
 
+.my-modal-grid {
+  display: grid;
+  grid-template-columns: 12fr;
+
+  margin: 0 auto;
+  align-self: center;
+
+  width: 100%;
+
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+
 .button-exit {
   justify-self: flex-start;
   align-self: start;
