@@ -1,9 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Moment from "react-moment";
-import deletePic from "../hooks/deletePic";
-
-import useAllPics from "../hooks/useAllPics";
 
 const Modal = ({ selectedImg, setSelectedImg, docs }) => {
   /*
@@ -17,8 +14,6 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
   const exitModal = () => {
     setSelectedImg(null);
   };
-
-  
 
   const previousPicture = () => {
     const reversedDocs = docs.map((doc) => doc).reverse();
@@ -36,7 +31,6 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
       }
       return false;
     });
-
   };
 
   const nextPicture = () => {
@@ -54,8 +48,6 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
 
       return false;
     });
-
-
   };
 
   return (
@@ -75,6 +67,7 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
 
           <div className="modal-grid">
             <div className="img-container">
+              <div className="location">@{selectedImg.displayName}</div>
               <div className="location">{selectedImg.location}</div>
               <div className="img-inner-container">
                 <motion.button
@@ -111,8 +104,6 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
               </div>
             </div>
           </div>
-
-          
         </div>
       </div>
     </motion.div>
