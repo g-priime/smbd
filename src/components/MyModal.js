@@ -80,7 +80,7 @@ const MyModal = ({ selectedImg, setSelectedImg }) => {
             X
           </button>
 
-          <div className="modal-grid">
+          <div className="my-modal-grid">
             <div className="img-container">
               <div className="location">{selectedImg.location}</div>
               <div className="img-inner-container">
