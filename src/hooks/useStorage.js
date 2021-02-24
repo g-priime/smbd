@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { projectStorage, projectFirestore, timestamp } from "../firebase";
-
 import { useAuth } from "../contexts/AuthContext";
 
 const useStorage = (file, location) => {
@@ -39,6 +38,7 @@ const useStorage = (file, location) => {
           createdAt,
           location,
           email: currentUser.email,
+          displayName: currentUser.displayName,
         });
         setUrl(url);
       }
