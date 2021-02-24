@@ -59,6 +59,7 @@ const TitleMyGallery = ({ setShowForm }) => {
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <h1>SMBD</h1> <i className="fas fa-leaf" />
           </Link>
+          <h4 className="username">{currentUser.displayName}</h4>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
