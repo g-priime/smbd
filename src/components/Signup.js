@@ -33,19 +33,26 @@ export default function Signup() {
         emailRef.current.value,
         passwordRef.current.value,
         displayNameRef.current.value
-      )
-        .then((data) => {
-          console.log(username);
-          const { user } = data;
-          if (user) {
-            user.updateProfile({
-              displayName: username,
-            });
-          }
-        })
-        .then(history.push("/"));
-    } catch {
-      setError("Failed to create an account");
+      ).then((data) => {
+        console.log(username);
+        const { user } = data;
+        if (user) {
+          user.updateProfile({
+            displayName: username,
+          });
+        }
+      });
+    } catch (error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      setError(errorMessage);
+      console.log(errorCode)
+    } finally {
+      if (errorCode === "auth/email-already-in-use") {
+        history.push("/signup");
+      } else {
+        history.push("/");
+      }
     }
 
     setLoading(false);
