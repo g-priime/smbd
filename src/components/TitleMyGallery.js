@@ -5,7 +5,7 @@ import { Alert } from "react-bootstrap";
 
 import "./Navbar.css";
 
-const Title = ({ setShowForm }) => {
+const TitleMyGallery = ({ setShowForm }) => {
   const history = useHistory();
   const [error, setError] = useState("");
   const { logout, currentUser } = useAuth();
@@ -35,10 +35,9 @@ const Title = ({ setShowForm }) => {
     history.push("/update-profile");
   };
 
-  const toMyGallery = () => {
+  const addPhoto = () => {
     closeMobileMenu();
-    history.push("/my-gallery");
-    console.log(currentUser.displayName);
+    setShowForm(true);
   };
 
   async function handleLogout() {
@@ -65,7 +64,7 @@ const Title = ({ setShowForm }) => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <button onClick={toMyGallery}>My Pics</button>
+            <button onClick={addPhoto}>Add Photo</button>
 
             <button onClick={toUpdateProfile}>Update Profile</button>
 
@@ -84,4 +83,4 @@ const Title = ({ setShowForm }) => {
   );
 };
 
-export default Title;
+export default TitleMyGallery;

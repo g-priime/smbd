@@ -40,7 +40,6 @@ body {
 }
 
 .title h1 {
-  
   font-size: 2.5rem;
   letter-spacing: 2px;
   font-weight: normal;
@@ -52,6 +51,11 @@ body {
   font-weight: normal;
 
   align-self: center;
+}
+
+.title h4 {
+  color: whitesmoke;
+  font-size: 1.3rem;
 }
 
 .title button:hover {
@@ -82,8 +86,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: -15vh;
-
-  
 }
 .upload-grid {
   display: grid;
@@ -93,8 +95,6 @@ body {
   background: var(--secondary);
 
   max-height: 100vh;
-
-
 }
 /*
 form {
@@ -262,6 +262,21 @@ button:active {
 
   width: 100%;
 
+  padding-top: 21px;
+  padding-bottom: 0;
+}
+
+.my-modal-grid {
+  display: grid;
+  grid-template-columns: 12fr;
+
+  margin: 0 auto;
+  align-self: center;
+
+  width: 100%;
+
+  padding-top: 0;
+  padding-bottom: 8px;
 }
 
 .button-exit {
@@ -289,7 +304,7 @@ button:active {
 .location {
   text-align: center;
   color: var(--primary);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: 2px;
   font-weight: normal;
   margin-top: 0;
@@ -375,7 +390,7 @@ button:active {
 .caption {
   text-align: center;
   color: var(--primary);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: 2px;
   font-weight: normal;
 }
@@ -396,8 +411,6 @@ button:active {
 
   background: transparent;
   border: none;
-
-  
 }
 
 /*Signup Styles*/

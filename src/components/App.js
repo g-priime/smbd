@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 import ImageGallery from "./ImageGallery";
+import MyGallery from "./MyGallery"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/" component={ImageGallery} />
+            <PrivateRoute path="/my-gallery" component={MyGallery} />
             <PrivateRoute path="/update-profile" component={UpdateProfile} />
 
             <Route path="/signup" component={Signup} />

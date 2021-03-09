@@ -8,10 +8,14 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const displayNameRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  const [currentUser, setCurrentUser] = useState();
+  const { updateDisplayName } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -23,10 +27,32 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
-    } catch {
-      setError("Failed to create an account");
+      let username = displayNameRef.current.value;
+
+      await signup(
+        emailRef.current.value,
+        passwordRef.current.value,
+        displayNameRef.current.value
+      ).then((data) => {
+        console.log(username);
+        const { user } = data;
+        if (user) {
+          user.updateProfile({
+            displayName: username,
+          });
+        }
+      });
+    } catch (error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      setError(errorMessage);
+      console.log(errorCode)
+    } finally {
+      if (errorCode === "auth/email-already-in-use") {
+        history.push("/signup");
+      } else {
+        history.push("/");
+      }
     }
 
     setLoading(false);
@@ -41,12 +67,19 @@ export default function Signup() {
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card.Body>
-            
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="username">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="displayName"
+                  ref={displayNameRef}
+                  required
+                />
               </Form.Group>
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
@@ -60,7 +93,11 @@ export default function Signup() {
                   required
                 />
               </Form.Group>
-              <button disabled={loading} className="w-100 button-forms" type="submit">
+              <button
+                disabled={loading}
+                className="w-100 button-forms"
+                type="submit"
+              >
                 Create Account
               </button>
             </Form>

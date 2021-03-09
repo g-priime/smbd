@@ -8,10 +8,12 @@ export default function UpdateProfile() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, updateEmail, updatePassword } = useAuth();
+  const { currentUser, updateEmail, updatePassword, updateDisplayName } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  const displayNameRef = useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,14 +25,18 @@ export default function UpdateProfile() {
     const promises = [];
     setLoading(true);
     setError("");
-/*
+    /*
     if (emailRef.current.value !== currentUser.email) {
       promises.push(updateEmail(emailRef.current.value));
     }
     */
-   
+
     if (passwordRef.current.value) {
       promises.push(updatePassword(passwordRef.current.value));
+    }
+
+    if (displayNameRef.current.value) {
+      promises.push(updateDisplayName(displayNameRef.current.value));
     }
 
     Promise.all(promises)
@@ -54,10 +60,16 @@ export default function UpdateProfile() {
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card.Body>
-            
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
-              
+              <Form.Group id="username">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="displayName"
+                  ref={displayNameRef}
+                  required
+                />
+              </Form.Group>
               <Form.Group id="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
@@ -74,7 +86,11 @@ export default function UpdateProfile() {
                   placeholder="Leave blank to keep the same"
                 />
               </Form.Group>
-              <button disabled={loading} className="w-100 button-forms" type="submit">
+              <button
+                disabled={loading}
+                className="w-100 button-forms"
+                type="submit"
+              >
                 Update
               </button>
             </Form>

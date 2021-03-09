@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Moment from "react-moment";
+import deletePic from "../hooks/deletePic";
 
-const Modal = ({ selectedImg, setSelectedImg, docs }) => {
+import useFirestore from "../hooks/useFirestore";
+
+const MyModal = ({ selectedImg, setSelectedImg }) => {
   /*
   const handleClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
@@ -14,6 +17,15 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
   const exitModal = () => {
     setSelectedImg(null);
   };
+
+  const deletePicture = () => {
+    const { fileName } = deletePic(selectedImg.name);
+    setSelectedImg(null);
+
+    console.log(fileName);
+  };
+
+  const { docs } = useFirestore("images");
 
   const previousPicture = () => {
     const reversedDocs = docs.map((doc) => doc).reverse();
@@ -31,6 +43,7 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
       }
       return false;
     });
+
   };
 
   const nextPicture = () => {
@@ -48,6 +61,8 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
 
       return false;
     });
+
+
   };
 
   return (
@@ -65,9 +80,8 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
             X
           </button>
 
-          <div className="modal-grid">
+          <div className="my-modal-grid">
             <div className="img-container">
-              <div className="location">@{selectedImg.displayName}</div>
               <div className="location">{selectedImg.location}</div>
               <div className="img-inner-container">
                 <motion.button
@@ -104,10 +118,14 @@ const Modal = ({ selectedImg, setSelectedImg, docs }) => {
               </div>
             </div>
           </div>
+
+          <button className="button-delete" onClick={deletePicture}>
+            <i class="far fa-trash-alt"></i>
+          </button>
         </div>
       </div>
     </motion.div>
   );
 };
 
-export default Modal;
+export default MyModal;
