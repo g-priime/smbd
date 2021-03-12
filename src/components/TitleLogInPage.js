@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Alert } from "react-bootstrap";
 
-const TitleLogInPage = ({ setShowForm }) => {
+const TitleLogInPage = ({ setShowForm, pageTitle }) => {
   const history = useHistory();
   const [error, setError] = useState("");
   const { logout } = useAuth();
@@ -68,7 +68,7 @@ const TitleLogInPage = ({ setShowForm }) => {
           </ul>
         </div>
       </nav>
-      <h2>Log In to SMBD</h2>
+      <h2>{ pageTitle }</h2>
       {/* TODO - fix how error message is shown */}
       {error && <Alert variant="danger">{error}</Alert>}
       {/*
