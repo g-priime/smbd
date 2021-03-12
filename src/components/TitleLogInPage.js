@@ -28,6 +28,18 @@ const TitleLogInPage = ({ setShowForm }) => {
 
   window.addEventListener("resize", showButton);
 
+  async function handleLogin() {
+    closeMobileMenu();
+    setError("");
+
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      setError("Failed to go to log in page");
+    }
+  }
+
   async function handleSignUp() {
     closeMobileMenu();
     setError("");
@@ -51,6 +63,7 @@ const TitleLogInPage = ({ setShowForm }) => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <button onClick={handleLogin}>Log In</button>
             <button onClick={handleSignUp}>Sign Up</button>
           </ul>
         </div>
