@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import TitleLoggedOut from "./TitleLoggedOut";
+import TitleLogInPage from "./TitleLogInPage";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -60,7 +60,7 @@ export default function Signup() {
 
   return (
     <div className="ImageGallery">
-      <TitleLoggedOut />
+      <TitleLogInPage />
       <Container
         className="d-flex justify-content-center"
         style={{ minHeight: "100vh" }}
