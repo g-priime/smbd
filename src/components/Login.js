@@ -12,6 +12,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
+  const pageTitle = "Log In to SMBD";
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -29,14 +31,13 @@ export default function Login() {
 
   return (
     <div className="ImageGallery">
-      <TitleLogInPage />
+      <TitleLogInPage pageTitle={pageTitle} />
       <Container
         className="d-flex justify-content-center"
         style={{ minHeight: "100vh" }}
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card.Body>
-            
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email">
@@ -47,7 +48,11 @@ export default function Login() {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" ref={passwordRef} required />
               </Form.Group>
-              <button disabled={loading} className="w-100 button-forms" type="submit">
+              <button
+                disabled={loading}
+                className="w-100 button-forms"
+                type="submit"
+              >
                 Log In
               </button>
             </Form>
