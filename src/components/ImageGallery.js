@@ -4,8 +4,8 @@ import Modal from "./Modal";
 import Title from "./Title";
 import UploadForm from "./UploadForm";
 
-import "../index.css"
-import useAllPics from "../hooks/useAllPics"
+import "../index.css";
+import useAllPics from "../hooks/useAllPics";
 
 function ImageGallery() {
   const [selectedImg, setSelectedImg] = useState(null);
@@ -14,14 +14,20 @@ function ImageGallery() {
 
   const { docs } = useAllPics("images");
 
+  const pageTitle = "So Much Beauty in Dirt";
+
   return (
     <div className="ImageGallery">
-      <Title setShowForm={setShowForm} />
-      {showForm && <UploadForm setShowForm={setShowForm} />} {/* comment out to remove upload ability */}
-      
+      <Title setShowForm={setShowForm} pageTitle={pageTitle} />
+      {showForm && <UploadForm setShowForm={setShowForm} />}{" "}
+      {/* comment out to remove upload ability */}
       <ImageGrid setSelectedImg={setSelectedImg} docs={docs} />
       {selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} docs={docs} />
+        <Modal
+          selectedImg={selectedImg}
+          setSelectedImg={setSelectedImg}
+          docs={docs}
+        />
       )}
     </div>
   );
