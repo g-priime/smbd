@@ -11,6 +11,8 @@ export default function ForgotPassword() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const pageTitle = "Reset Password";
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -29,7 +31,7 @@ export default function ForgotPassword() {
 
   return (
     <div className="ImageGallery">
-      <TitleLogInPage />
+      <TitleLogInPage pageTitle={pageTitle} />
       <Container
         className="d-flex justify-content-center"
         style={{ minHeight: "100vh" }}
