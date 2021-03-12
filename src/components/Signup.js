@@ -17,6 +17,8 @@ export default function Signup() {
   const [currentUser, setCurrentUser] = useState();
   const { updateDisplayName } = useAuth();
 
+  const pageTitle = "Create Your Account";
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -46,7 +48,7 @@ export default function Signup() {
       var errorCode = error.code;
       var errorMessage = error.message;
       setError(errorMessage);
-      console.log(errorCode)
+      console.log(errorCode);
     } finally {
       if (errorCode === "auth/email-already-in-use") {
         history.push("/signup");
@@ -60,7 +62,7 @@ export default function Signup() {
 
   return (
     <div className="ImageGallery">
-      <TitleLogInPage />
+      <TitleLogInPage pageTitle={pageTitle} />
       <Container
         className="d-flex justify-content-center"
         style={{ minHeight: "100vh" }}
