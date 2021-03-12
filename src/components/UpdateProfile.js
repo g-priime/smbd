@@ -2,18 +2,25 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import TitleUpdateProfile from "./TitleUpdateProfile";
+import Title from "./Title";
 
 export default function UpdateProfile() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, updateEmail, updatePassword, updateDisplayName } = useAuth();
+  const {
+    currentUser,
+    updateEmail,
+    updatePassword,
+    updateDisplayName,
+  } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   const displayNameRef = useRef();
+
+  const pageTitle = "Update Profile";
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -53,7 +60,7 @@ export default function UpdateProfile() {
 
   return (
     <div className="ImageGallery">
-      <TitleUpdateProfile />
+      <Title pageTitle={pageTitle} />
       <Container
         className="d-flex justify-content-center"
         style={{ minHeight: "100vh" }}

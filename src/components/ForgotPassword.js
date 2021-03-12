@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
-import TitleForgotPassword from "./TitleForgotPassword";
+import TitleLogInPage from "./TitleLogInPage";
 
 export default function ForgotPassword() {
   const emailRef = useRef();
@@ -10,6 +10,8 @@ export default function ForgotPassword() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const pageTitle = "Reset Password";
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,14 +31,13 @@ export default function ForgotPassword() {
 
   return (
     <div className="ImageGallery">
-      <TitleForgotPassword />
+      <TitleLogInPage pageTitle={pageTitle} />
       <Container
         className="d-flex justify-content-center"
         style={{ minHeight: "100vh" }}
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card.Body>
-            
             {error && <Alert variant="danger">{error}</Alert>}
             {message && <Alert variant="success">{message}</Alert>}
             <Form onSubmit={handleSubmit}>
@@ -44,7 +45,11 @@ export default function ForgotPassword() {
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" ref={emailRef} required />
               </Form.Group>
-              <button disabled={loading} className="w-100 button-forms" type="submit">
+              <button
+                disabled={loading}
+                className="w-100 button-forms"
+                type="submit"
+              >
                 Reset Password
               </button>
             </Form>

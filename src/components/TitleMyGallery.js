@@ -5,7 +5,7 @@ import { Alert } from "react-bootstrap";
 
 import "./Navbar.css";
 
-const TitleMyGallery = ({ setShowForm }) => {
+const TitleMyGallery = ({ setShowForm, pageTitle }) => {
   const history = useHistory();
   const [error, setError] = useState("");
   const { logout, currentUser } = useAuth();
@@ -33,6 +33,12 @@ const TitleMyGallery = ({ setShowForm }) => {
   const toUpdateProfile = () => {
     closeMobileMenu();
     history.push("/update-profile");
+  };
+
+  const toHome = () => {
+    closeMobileMenu();
+    history.push("/");
+    console.log(currentUser.displayName);
   };
 
   const addPhoto = () => {
@@ -64,6 +70,8 @@ const TitleMyGallery = ({ setShowForm }) => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <button onClick={toHome}>Home</button>
+
             <button onClick={addPhoto}>Add Photo</button>
 
             <button onClick={toUpdateProfile}>Update Profile</button>
@@ -73,7 +81,7 @@ const TitleMyGallery = ({ setShowForm }) => {
         </div>
       </nav>
 
-      <h2>So Much Beauty in Dirt</h2>
+      <h2>{pageTitle}</h2>
       {/* TODO - fix how error message is shown */}
       {error && <Alert variant="danger">{error}</Alert>}
       {/*

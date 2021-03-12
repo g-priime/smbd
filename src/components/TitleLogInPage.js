@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Alert } from "react-bootstrap";
 
-const TitleLogInPage = ({ setShowForm }) => {
+const TitleLogInPage = ({ setShowForm, pageTitle }) => {
   const history = useHistory();
   const [error, setError] = useState("");
   const { logout } = useAuth();
@@ -28,6 +28,18 @@ const TitleLogInPage = ({ setShowForm }) => {
 
   window.addEventListener("resize", showButton);
 
+  async function handleLogin() {
+    closeMobileMenu();
+    setError("");
+
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      setError("Failed to go to log in page");
+    }
+  }
+
   async function handleSignUp() {
     closeMobileMenu();
     setError("");
@@ -51,11 +63,12 @@ const TitleLogInPage = ({ setShowForm }) => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <button onClick={handleLogin}>Log In</button>
             <button onClick={handleSignUp}>Sign Up</button>
           </ul>
         </div>
       </nav>
-      <h2>Log In to SMBD</h2>
+      <h2>{ pageTitle }</h2>
       {/* TODO - fix how error message is shown */}
       {error && <Alert variant="danger">{error}</Alert>}
       {/*
