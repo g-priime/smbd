@@ -74,7 +74,7 @@ export default function UpdateProfile() {
                 <Form.Control
                   type="displayName"
                   ref={displayNameRef}
-                  required
+                  placeholder={currentUser.displayName}
                 />
               </Form.Group>
               <Form.Group id="password">
