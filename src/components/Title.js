@@ -8,7 +8,7 @@ import "./Navbar.css";
 const Title = ({ setShowForm, pageTitle }) => {
   const history = useHistory();
   const [error, setError] = useState("");
-  const { logout, currentUser } = useAuth();
+  const { logout, currentUser, username } = useAuth();
 
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -66,7 +66,7 @@ const Title = ({ setShowForm, pageTitle }) => {
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <h1>SMBD</h1> <i className="fas fa-leaf" />
           </Link>
-          <h4 className="username">{currentUser.displayName}</h4>
+          <h4 className="username">{username}</h4>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
