@@ -11,6 +11,8 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
+  const [username, setUsername] = useState();
+
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
   }
@@ -44,6 +46,8 @@ export function AuthProvider({ children }) {
       })
       .then(function () {
         // Update successful.
+        console.log(currentUser.displayName);
+        setUsername(displayName);
       })
       .catch(function (error) {
         // An error happened.
@@ -53,6 +57,10 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      if (user) {
+        setUsername(user.displayName);
+      }
+      
       setLoading(false);
     });
 
@@ -60,6 +68,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const value = {
+    username,
     currentUser,
     login,
     signup,

@@ -4,6 +4,8 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import Title from "./Title";
 
+import updatePics from "../hooks/updatePics";
+
 export default function UpdateProfile() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -43,6 +45,7 @@ export default function UpdateProfile() {
     }
 
     if (displayNameRef.current.value) {
+      updatePics(currentUser.displayName, currentUser.email, displayNameRef.current.value);
       promises.push(updateDisplayName(displayNameRef.current.value));
     }
 
@@ -74,7 +77,7 @@ export default function UpdateProfile() {
                 <Form.Control
                   type="displayName"
                   ref={displayNameRef}
-                  required
+                  placeholder={currentUser.displayName}
                 />
               </Form.Group>
               <Form.Group id="password">
