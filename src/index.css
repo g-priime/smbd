@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
 
 :root {
-  --primary: #efb6b2;
-  --secondary: #4e4e4e;
-  --tertiary: rgb(238, 233, 233);
+  --primary: #23CE6B;
+  --secondary: #50514F; 
+  --tertiary: #F6F8FF;
+  --quaternary: #272D2D;
+  --penternary: #A846A0;
   --error: #ff4a4a;
 }
 
